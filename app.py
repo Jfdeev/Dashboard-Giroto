@@ -144,11 +144,14 @@ fig7.update_layout(yaxis_tickformat='.0%')
 st.plotly_chart(fig7, use_container_width=True)
 
 # 8. CGPA vs. Depressão
-fig8 = px.scatter(
-    filtered_data, x='CGPA', y='Depression',
-    title="8. Desempenho Acadêmico e Depressão",
-    labels={'CGPA': 'Nota Média (CGPA)', 'Depression': 'Depressão (0=Não, 1=Sim)'},
-    color='Depression', color_discrete_map={0: '#1f77b4', 1: '#ff7f0e'}
+fig8 = px.box(
+    filtered_data,
+    x='Depression',
+    y='CGPA',
+    title="Desempenho Acadêmico e Depressão",
+    labels={'Depression': 'Depressão (0=Não, 1=Sim)', 'CGPA': 'Nota Média (CGPA)'},
+    color='Depression',
+    color_discrete_map={0: '#1f77b4', 1: '#ff7f0e'}
 )
 st.plotly_chart(fig8, use_container_width=True)
 
