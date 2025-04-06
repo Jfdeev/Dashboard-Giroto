@@ -129,12 +129,12 @@ depression_count_city = (
     .reset_index(name='Count')
 )
 
-# 5. Pensamentos Suicidas por Cidade (Top 10)
+# 5. Pensamentos Suicidas por Cidade
 fig5 = px.bar(
     depression_count_city,
     x='City',
     y='Count',
-    title="Pensamentos Suicidas por Cidade (Top 10)",
+    title="Pensamentos Suicidas por Cidade",
     labels={'City': 'Cidade', 'Count': 'Número de Pessoas com Pensamentos Suicidas'},
     color='Count', color_continuous_scale='Blues'
 )
