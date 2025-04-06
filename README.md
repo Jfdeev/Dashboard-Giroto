@@ -4,7 +4,6 @@ Este projeto é um **dashboard interativo** desenvolvido com Streamlit, Pandas e
 
 # Deploy do Projeto
 
-
 ## Objetivo
 O objetivo é fornecer uma interface visual que revele os principais drivers da saúde mental em estudantes, permitindo análises personalizadas por meio de filtros interativos. O dashboard visa identificar grupos vulneráveis e informar estratégias de bem-estar baseadas em dados.
 

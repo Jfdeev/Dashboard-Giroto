@@ -124,15 +124,14 @@ st.plotly_chart(fig4, use_container_width=True)
 
 # 5. Pensamentos Suicidas por Cidade (Top 10)
 fig5 = px.bar(
-    filtered_data.groupby('City')['Have you ever had suicidal thoughts ?'].mean().nlargest(10).reset_index(),
+    filtered_data.groupby('City')['Have you ever had suicidal thoughts ?'].count().sort_values(ascending=False).reset_index(),
     x='City', y='Have you ever had suicidal thoughts ?',
-    title="5. Top 10 Cidades com Maior Risco de Pensamentos Suicidas",
-    labels={'City': 'Cidade', 'Have you ever had suicidal thoughts ?': 'Taxa (%)'},
+    title="5. Cidades com Maior Risco de Pensamentos Suicidas",
+    labels={'City': 'Cidade', 'Have you ever had suicidal thoughts ?': 'Número de pessoas por cidade'},
     color='Have you ever had suicidal thoughts ?', color_continuous_scale='Reds',
-    text=filtered_data.groupby('City')['Have you ever had suicidal thoughts ?'].mean().nlargest(10).apply(lambda x: f"{x*100:.1f}%")
+    text=filtered_data.groupby('City')['Have you ever had suicidal thoughts ?'].count().sort_values(ascending=False)
 )
 fig5.update_traces(textposition='auto')
-fig5.update_layout(yaxis_tickformat='.0%')
 st.plotly_chart(fig5, use_container_width=True)
 
 # 6. Estresse Financeiro vs. Depressão
