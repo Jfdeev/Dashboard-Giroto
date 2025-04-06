@@ -122,7 +122,14 @@ fig4 = px.histogram(
 )
 st.plotly_chart(fig4, use_container_width=True)
 
-# 5. Pensamentos Suicidas por Cidade (Top 10)
+depression_count_city = (
+    filtered_data[filtered_data['Depression'] == 1]
+    .groupby('City')
+    .size()
+    .reset_index(name='Count')
+)
+
+# 5. Pensamentos Suicidas por Cidade
 fig5 = px.bar(
     filtered_data.groupby('City')['Have you ever had suicidal thoughts ?'].count().sort_values(ascending=False).reset_index(),
     x='City', y='Have you ever had suicidal thoughts ?',
