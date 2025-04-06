@@ -122,17 +122,24 @@ fig4 = px.histogram(
 )
 st.plotly_chart(fig4, use_container_width=True)
 
+depression_count_city = (
+    filtered_data[filtered_data['Depression'] == 1]
+    .groupby('City')
+    .size()
+    .reset_index(name='Count')
+)
+
 # 5. Pensamentos Suicidas por Cidade (Top 10)
 fig5 = px.bar(
-    filtered_data.groupby('City')['Have you ever had suicidal thoughts ?'].mean().nlargest(10).reset_index(),
-    x='City', y='Have you ever had suicidal thoughts ?',
-    title="5. Top 10 Cidades com Maior Risco de Pensamentos Suicidas",
-    labels={'City': 'Cidade', 'Have you ever had suicidal thoughts ?': 'Taxa (%)'},
-    color='Have you ever had suicidal thoughts ?', color_continuous_scale='Reds',
-    text=filtered_data.groupby('City')['Have you ever had suicidal thoughts ?'].mean().nlargest(10).apply(lambda x: f"{x*100:.1f}%")
+    depression_count_city,
+    x='City',
+    y='Count',
+    title="Pensamentos Suicidas por Cidade (Top 10)",
+    labels={'City': 'Cidade', 'Count': 'Número de Pessoas com Pensamentos Suicidas'},
+    color='Count', color_continuous_scale='Blues'
 )
 fig5.update_traces(textposition='auto')
-fig5.update_layout(yaxis_tickformat='.0%')
+fig5.update_layout(yaxis_tickformat=',')
 st.plotly_chart(fig5, use_container_width=True)
 
 # 6. Estresse Financeiro vs. Depressão
