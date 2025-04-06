@@ -2,6 +2,9 @@
 
 Este projeto é um **dashboard interativo** desenvolvido com Streamlit, Pandas e Plotly, projetado para explorar os 10 fatores mais impactantes na saúde mental de estudantes. Ele analisa variáveis como depressão, pensamentos suicidas, pressão acadêmica, duração do sono, estresse financeiro e hábitos alimentares, oferecendo uma ferramenta dinâmica para educadores, pesquisadores e estudantes entenderem padrões críticos.
 
+# Deploy do Projeto
+https://dashboardgiras.streamlit.app/
+
 ## Objetivo
 O objetivo é fornecer uma interface visual que revele os principais drivers da saúde mental em estudantes, permitindo análises personalizadas por meio de filtros interativos. O dashboard visa identificar grupos vulneráveis e informar estratégias de bem-estar baseadas em dados.
 
